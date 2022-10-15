@@ -1,19 +1,10 @@
+import { BrowserRouter } from "react-router-dom";
+import Screens from "./Screens/ScreenRouter";
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p className="text-4xl font-bold">
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" h-screen items-center flex  md:px-5 bg-nite ">
+      <Screens />
     </div>
   );
 }
