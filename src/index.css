@@ -13,3 +13,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.bg-nite {
+  background: rgb(26, 55, 67);
+  background: linear-gradient(
+    135deg,
+    rgba(26, 55, 67, 1) 0%,
+    rgba(0, 26, 37, 1) 0%,
+    rgba(26, 55, 67, 1) 100%
+  );
+}
