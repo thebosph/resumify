@@ -1,7 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import classNames from "classnames";
+import Viewer from "../../Components/viewer";
+import React from "react";
 
 const Builder = () => {
+  const [color, setColor] = React.useState("#FFFFFF");
   const navigate = useNavigate();
+
   return (
     <div className="flex w-full h-full">
       <div className="w-3/4 bg-niteBlue p-20">
@@ -26,14 +31,22 @@ const Builder = () => {
             <h3 className="text-2xl text-white">Color</h3>
             {/* Color picker */}
             <div className="flex flex-row space-x-2">
-              <div className="w-10 h-10 rounded-full bg-blue-400"></div>
-              <div className="w-10 h-10 rounded-full bg-red-400"></div>
-              <div className="w-10 h-10 rounded-full bg-green-400"></div>
-              <div className="w-10 h-10 rounded-full bg-yellow-400"></div>
-              <div className="w-10 h-10 rounded-full bg-purple-400"></div>
-              <div className="w-10 h-10 rounded-full bg-pink-400"></div>
-              <div className="w-10 h-10 rounded-full bg-gray-400"></div>
-              <div className="w-10 h-10 rounded-full bg-black"></div>
+              <div
+                className="w-10 h-10 rounded-full bg-[#f4ce9d]"
+                onClick={() => setColor("#f4ce9d")}
+              ></div>
+              <div
+                className="w-10 h-10 rounded-full bg-[#f8debe]"
+                onClick={() => setColor("#f8debe")}
+              ></div>
+              <div
+                className="w-10 h-10 rounded-full bg-[#fae9d3]"
+                onClick={() => setColor("#fae9d3")}
+              ></div>
+              <div
+                className="w-10 h-10 rounded-full bg-[#fefaf4]"
+                onClick={() => setColor("#fefaf4")}
+              ></div>
             </div>
           </div>
           {/* Back to homepage */}
@@ -50,13 +63,24 @@ const Builder = () => {
           </div>
         </div>
         <div>
-          <img
+          {/* <img
             src="/img/resume.jpg"
             alt=""
             width={500}
             height={400}
             className="h-[600px] absolute top-[50px] right-[250px]"
+          /> */}
+          <Viewer
+            color={color}
+            cn="w-[500px] h-[600px] absolute top-[50px] right-[250px]"
+            toolbar={false}
           />
+          {/* <PDFViewer
+            className="w-[500px] h-[600px] absolute top-[50px] right-[250px]"
+            showToolbar={false}
+          >
+            <DetailKing />
+          </PDFViewer> */}
           {/* Next and Back Arrows */}
           <div className="flex flex-row   absolute right-[220px] top-[350px]">
             <button className="bg-niteBlue bg-opacity-75 hover:bg-niteBlueDark text-white mr-[424px] rounded-md px-5 py-2">
