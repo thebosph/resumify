@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import classNames from "classnames";
+
 import Viewer from "../../Components/viewer";
 import React from "react";
 
@@ -32,19 +32,19 @@ const Builder = () => {
             {/* Color picker */}
             <div className="flex flex-row space-x-2">
               <div
-                className="w-10 h-10 rounded-full bg-[#f4ce9d]"
+                className="colorPick bg-[#f4ce9d]"
                 onClick={() => setColor("#f4ce9d")}
               ></div>
               <div
-                className="w-10 h-10 rounded-full bg-[#f8debe]"
+                className="colorPick bg-[#f8debe]"
                 onClick={() => setColor("#f8debe")}
               ></div>
               <div
-                className="w-10 h-10 rounded-full bg-[#fae9d3]"
+                className="colorPick bg-[#fae9d3]"
                 onClick={() => setColor("#fae9d3")}
               ></div>
               <div
-                className="w-10 h-10 rounded-full bg-[#fefaf4]"
+                className="colorPick bg-[#fefaf4]"
                 onClick={() => setColor("#fefaf4")}
               ></div>
             </div>

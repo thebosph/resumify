@@ -1,11 +1,8 @@
 import { PDFViewer } from "@react-pdf/renderer";
-import { type } from "@testing-library/user-event/dist/type";
-
-import React from "react";
 import DetailKing from "../Themes/detailKing";
-
+import Obukhov from "../Themes/obukhov";
 type Props = {
-  color: string;
+  color?: string;
   toolbar: boolean;
   cn: string;
 };
@@ -14,7 +11,8 @@ const Viewer = ({ color, toolbar, cn }: Props) => {
   return (
     <div>
       <PDFViewer showToolbar={toolbar} className={cn}>
-        <DetailKing color={color} />
+        {/* <DetailKing color={color} /> */}
+        <Obukhov />
       </PDFViewer>
     </div>
   );

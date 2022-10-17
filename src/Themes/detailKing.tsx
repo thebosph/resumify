@@ -1,7 +1,5 @@
-import React from "react";
 import { Page, Text, View, Document, Image } from "@react-pdf/renderer";
 import { styles } from "./detailKingStyles";
-import { url } from "inspector";
 
 type Props = {
   color?: string;
@@ -33,6 +31,23 @@ const DetailKing = ({ color }: Props) => (
       </View>
       {/* Horizontal line */}
       <View style={styles.line}></View>
+      <View
+        style={[
+          {
+            justifyContent: "space-between",
+            flexDirection: "column",
+            marginTop: 20,
+          },
+        ]}
+      >
+        <Text style={[styles.bodyRightSectionTitle]}>ABOUT ME</Text>
+        <Text style={styles.bodyLeftSectionContentDescription}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+          voluptas, quod, quia, voluptates quae voluptatibus quibusdam
+          doloremque quas quidem natus quos. Quisquam, quae. Quisquam voluptates
+          quae, quod, quibusdam, quia voluptatibus quidem doloremque quas natus.{" "}
+        </Text>
+      </View>
       <View style={styles.bodySection}>
         <View style={styles.bodyLeft}>
           <View style={styles.bodyLeftSection}>
@@ -67,15 +82,15 @@ const DetailKing = ({ color }: Props) => (
                 Bachelor of Science
               </Text>
 
-              <Text style={styles.bodyLeftSectionContentDate}>
-                2019 - Present
-              </Text>
               <Text style={styles.bodyLeftSectionContentDescription}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
                 voluptas, quod, quia, voluptates quae voluptatibus quibusdam
                 doloremque quas quidem natus quos. Quisquam, quae. Quisquam
                 voluptates quae, quod, quibusdam, quia voluptatibus quidem
                 doloremque quas natus.
+              </Text>
+              <Text style={styles.bodyLeftSectionContentDate}>
+                2019 - Present
               </Text>
             </View>
           </View>
