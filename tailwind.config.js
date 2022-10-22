@@ -12,8 +12,13 @@ module.exports = {
         niteBlue: "#00212E",
         niteBlueLight: "#001e29",
         niteBlueDark: "#001117",
+        niteExtraLight: "#1a3743",
+      },
+      backgroundImage: {
+        builderbg: "url('/public/img/writer.jpeg')",
       },
     },
+
+    plugins: [],
   },
-  plugins: [],
 };

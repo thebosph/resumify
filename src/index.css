@@ -23,3 +23,7 @@ code {
     rgba(26, 55, 67, 1) 100%
   );
 }
+
+.colorPick {
+  @apply w-10 h-10 rounded-full;
+}
