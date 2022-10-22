@@ -1,10 +1,14 @@
-import { Page, Text, View, Document, Image, Line } from "@react-pdf/renderer";
+import { Page, Text, View, Document, Image } from "@react-pdf/renderer";
 import { styles } from "./obukhovStyles";
 
-const Obukhov = () => {
+type Props = {
+  color?: string;
+};
+
+const Obukhov = ({ color }: Props) => {
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
+      <Page size="A4" style={[styles.page, { backgroundColor: color }]}>
         <View style={styles.left}>
           <Image
             style={styles.image}

@@ -1,11 +1,34 @@
 import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
 import Viewer from "../../Components/viewer";
-import React from "react";
+import classNames from "classnames";
+import useTheme from "../../hooks/useTheme";
 
 const Builder = () => {
-  const [color, setColor] = React.useState("#FFFFFF");
+  const [selectThemeIndex, setSelectThemeIndex] = useState(0);
+
   const navigate = useNavigate();
+  const {
+    theme,
+    title,
+    explain,
+    color,
+    colors,
+    setColor,
+    setTheme,
+    themeList,
+  } = useTheme(selectThemeIndex);
+
+  const handleThemeSlider = () => {
+    setSelectThemeIndex((prev) => {
+      if (prev === themeList.length - 1) {
+        return 0;
+      }
+      return prev + 1;
+    });
+    setTheme(themeList[selectThemeIndex].theme);
+    setColor(themeList[selectThemeIndex].colors[0]);
+  };
 
   return (
     <div className="flex w-full h-full">
@@ -15,38 +38,28 @@ const Builder = () => {
         </h1>
         <div>
           <span className="text-3xl font-black text-gray-500 opacity-30">
-            1/3
+            1/{themeList.length}
           </span>
           <div className="p-4 bg-niteExtraLight rounded-md w-2/3 flex flex-col space-y-2 mt-5">
             <h2 className="font-bold opacity-90 text-4xl text-white">
-              DetailKing
+              {title}
             </h2>
-            <p className="text-xl font-regular text-slate-200 ">
-              A simple, elegant and striking resume template. You can get a
-              stunning resume by filling in the information according to
-              yourself.{" "}
-            </p>
+            <p className="text-xl font-regular text-slate-200 ">{explain}</p>
           </div>
           <div className=" w-2/3 rounded-md flex flex-col space-y-2 mt-5">
             <h3 className="text-2xl text-white">Color</h3>
             {/* Color picker */}
             <div className="flex flex-row space-x-2">
-              <div
-                className="colorPick bg-[#f4ce9d]"
-                onClick={() => setColor("#f4ce9d")}
-              ></div>
-              <div
-                className="colorPick bg-[#f8debe]"
-                onClick={() => setColor("#f8debe")}
-              ></div>
-              <div
-                className="colorPick bg-[#fae9d3]"
-                onClick={() => setColor("#fae9d3")}
-              ></div>
-              <div
-                className="colorPick bg-[#fefaf4]"
-                onClick={() => setColor("#fefaf4")}
-              ></div>
+              {colors?.map((c) => (
+                <div
+                  key={c}
+                  className={classNames("w-8 h-8 rounded-full", {
+                    "ring-2 ring-white": c === color,
+                  })}
+                  style={{ backgroundColor: c }}
+                  onClick={() => setColor(c)}
+                />
+              ))}
             </div>
           </div>
           {/* Back to homepage */}
@@ -63,30 +76,25 @@ const Builder = () => {
           </div>
         </div>
         <div>
-          {/* <img
-            src="/img/resume.jpg"
-            alt=""
-            width={500}
-            height={400}
-            className="h-[600px] absolute top-[50px] right-[250px]"
-          /> */}
           <Viewer
             color={color}
             cn="w-[500px] h-[600px] absolute top-[50px] right-[250px]"
             toolbar={false}
+            theme={theme}
           />
-          {/* <PDFViewer
-            className="w-[500px] h-[600px] absolute top-[50px] right-[250px]"
-            showToolbar={false}
-          >
-            <DetailKing />
-          </PDFViewer> */}
-          {/* Next and Back Arrows */}
+
+          {/* Next and Back Arrows for Selected Theme */}
           <div className="flex flex-row   absolute right-[220px] top-[350px]">
-            <button className="bg-niteBlue bg-opacity-75 hover:bg-niteBlueDark text-white mr-[424px] rounded-md px-5 py-2">
+            <button
+              className="bg-niteBlue bg-opacity-75 hover:bg-niteBlueDark text-white mr-[424px] rounded-md px-5 py-2"
+              onClick={handleThemeSlider}
+            >
               &#60;
             </button>
-            <button className="bg-niteBlue bg-opacity-75 hover:bg-niteBlueDark text-white ml-10 rounded-md px-5 py-2">
+            <button
+              className="bg-niteBlue bg-opacity-75 hover:bg-niteBlueDark text-white ml-10 rounded-md px-5 py-2"
+              onClick={handleThemeSlider}
+            >
               &#62;
             </button>
           </div>

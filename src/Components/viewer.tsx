@@ -1,18 +1,23 @@
 import { PDFViewer } from "@react-pdf/renderer";
 import DetailKing from "../Themes/detailKing";
 import Obukhov from "../Themes/obukhov";
+
 type Props = {
   color?: string;
   toolbar: boolean;
   cn: string;
+  theme: string;
 };
 
-const Viewer = ({ color, toolbar, cn }: Props) => {
+const Viewer = ({ color, toolbar, cn, theme }: Props) => {
   return (
     <div>
       <PDFViewer showToolbar={toolbar} className={cn}>
-        {/* <DetailKing color={color} /> */}
-        <Obukhov />
+        {theme === "detailKing" ? (
+          <DetailKing color={color} />
+        ) : (
+          <Obukhov color={color} />
+        )}
       </PDFViewer>
     </div>
   );
