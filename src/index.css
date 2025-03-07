@@ -27,3 +27,7 @@ code {
 .colorPick {
   @apply w-10 h-10 rounded-full;
 }
+
+.badge {
+  @apply text-xs font-bold px-2 py-1 rounded-full;
+}
